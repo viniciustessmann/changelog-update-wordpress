@@ -1,18 +1,18 @@
-jobs: 
-  send_pull_requests: 
-    name: "A job to say hello"
+name: Update Changelog WordPRess
+on:
+  push
+
+jobs:
+  send_pull_requests:
     runs-on: ubuntu-latest
-    steps: 
-      - 
-        id: list
-        name: listPullRequests
+    name: A job to say hello
+    steps:
+      - name: listPullRequests
         uses: buildsville/list-pull-requests@v1
-        with: 
-          labels: "[\"WFR\"]"
-          skip_hour: "24"
-          token: "${{secrets.GITHUB_TOKEN}}"
-      - 
-        name: output
-        run: "echo '${{ github.event.pull_request.title }}'"
-name: "Update Changelog WordPRess"
-true: push
+        id: list
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          labels: '["WFR"]'
+          skip_hour: '24'
+      - name: output
+        run: echo '${{ github.event.pull_request.title }}'
