@@ -2,7 +2,7 @@ name: Update Changelog WordPRess
 on:
   push
     branches:
-    - main
+      - main
 
 jobs:
   send_pull_requests:
