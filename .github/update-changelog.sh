@@ -8,10 +8,6 @@ release=${last_version#?}
 
 tags=$(echo $versions | tr ' '  '..')
 
-echo 'New release version' $release
-
-echo 'Tags' $tags
-
 echo $(> CHANGELOG.md);
 
 x=$(echo "== Changelog ==")
