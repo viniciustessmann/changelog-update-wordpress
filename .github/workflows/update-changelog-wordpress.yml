@@ -11,5 +11,5 @@ jobs:
         with:
           fetch-depth: 0
       - name: Update changelog
-        run: script.sh
+        run: "${GITHUB_WORKSPACE}/.github/script.sh"
         shell: bash
