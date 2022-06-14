@@ -8,4 +8,5 @@ jobs:
     name: Update WordPress data
     steps:
       - name: output
-        run: print("hello world")
+        shell: bash
+        run: echo 'teste'
