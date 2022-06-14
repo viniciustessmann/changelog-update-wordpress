@@ -12,4 +12,4 @@ jobs:
           fetch-depth: 0
       - name: output
         shell: bash
-        run: git log v5.0.0..v6.0.0 --merges  --format="* %b"
+        run: script.sh
