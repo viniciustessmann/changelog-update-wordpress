@@ -1,6 +1,11 @@
 name: Update Data WordPRess
 on:
-  push
+  push:
+    tags:
+    - "v*"
+  pull_request:
+    tags:
+    - "v*"
 
 jobs:
   send_pull_requests:
