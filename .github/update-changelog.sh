@@ -7,15 +7,38 @@ penultimate_version=$(git describe --abbrev=0 --match="v*" --tags HEAD~)
 release=${last_version#?}
 
 tags=$penultimate_version..$last_version
+tags="v5.0.0..v6.0.0" #remove this
 
-echo $(> CHANGELOG.md);
+content=$(cat README.md)
 
-title_section_changelog=$(echo "== Changelog ==")
-echo "$title_section_changelog" >> CHANGELOG.md
+if printf -- '%s' "$content" | egrep -q -- "= $release ="
+then
+  printf "Changelog updated"
+else 
+    pull_requests=$(git log $tags --merges  --format="* %b")
+    # echo "= $release ="
+    # echo "$pull_requests"
 
-title_release=$(echo "= ${release} =")
-echo "$title_release" >> CHANGELOG.md
+    line_started_changelog=$(awk '/== Changelog ==/{ print NR; exit }' README.md)
 
-pull_requests=$(git log $tags --merges  --format="* %b" >> CHANGELOG.md)
+    line_started_changelog=$((line_started_changelog + 1))
 
-echo $pull_requests
+    echo $line_started_changelog
+
+    sed -i $line_started_changelog' i\'$pull_requests README.md
+
+
+
+fi
+
+# pull_requests=$(git log $tags --merges  --format="* %b" >> CHANGELOG.md)
+
+# title_section_changelog=$(echo "== Changelog ==")
+# echo "$title_section_changelog" >> CHANGELOG.md
+
+# title_release=$(echo "= ${release} =")
+# echo "$title_release" >> CHANGELOG.md
+
+
+
+
