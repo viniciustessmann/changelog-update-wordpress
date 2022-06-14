@@ -11,5 +11,5 @@ jobs:
         with:
           fetch-depth: 0
       - name: output
-        run: script.sh
+        run: bash -x script.sh
         shell: bash
