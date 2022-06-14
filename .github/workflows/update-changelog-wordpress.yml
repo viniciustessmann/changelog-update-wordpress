@@ -1,18 +1,23 @@
-name: Update Changelog WordPRess
+name: Update Data WordPRess
 on:
-  push
+  push:
+    tags:
+    - "v*"
+  pull_request:
+    tags:
+    - "v*"
 
 jobs:
   send_pull_requests:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Update WordPress data
     steps:
-      - name: listPullRequests
-        uses: buildsville/list-pull-requests@v1
-        id: list
+      - uses: actions/checkout@v2
         with:
-          token: ${{secrets.GITHUB_TOKEN}}
-          labels: '["WFR"]'
-          skip_hour: '24'
-      - name: output
-        run: echo '${{ github.event.pull_request.title }}'
+          fetch-depth: 0
+      - name: Update changelog WordPress
+        run: "${GITHUB_WORKSPACE}/.github/update-changelog.sh"
+        shell: bash
+      - name: Update version WordPress
+        run: "${GITHUB_WORKSPACE}/.github/update-version.sh"
+        shell: bash
