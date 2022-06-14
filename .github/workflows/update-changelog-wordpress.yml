@@ -11,5 +11,5 @@ jobs:
         with:
           fetch-depth: 0
       - name: Update changelog
-        run: echo ${{ github.action_path }}
+        run: script.sh
         shell: bash
