@@ -1,9 +1,0 @@
-name: 'changelog-update-wordpress'
-description: 'Composite action to update the version and changelog plugin WordPress'
-runs:
-  using: "composite"
-    - name: Update Changelg
-      shell: bash
-      run: |
-        print("hello world")
-      
