@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Update WordPress data
     steps:
+     - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: output
         shell: bash
         run: git remote
