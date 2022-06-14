@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: output
         shell: bash
-        run: echo 'teste'
+        run: git remote
