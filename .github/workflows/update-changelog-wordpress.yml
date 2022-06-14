@@ -8,5 +8,4 @@ jobs:
     name: Update WordPress data
     steps:
       - name: output
-        run: |
-        print("hello world")
+        run: print("hello world")
