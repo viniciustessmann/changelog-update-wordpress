@@ -2,12 +2,14 @@ git fetch
 
 last_version=$(git tag --sort=committerdate | tail -1)
 
-versions=$(git tag --sort=committerdate | tail -2)
+new_release=${last_version#?}
 
-release=${last_version#?}
+echo 'New release version' $new_release
 
-tags=$(echo $versions | tr ' '  '..')
+content=$(cat  "changelog-update-wordpress.php")
 
-echo 'New release version' $release
+old_version=$(grep -h "Version" changelog-update-wordpress.php)
 
-echo 'Tags' $tags
+result=$(echo "$content" | sed "s/$old_version/Version: $new_release/")
+
+printf "$result" > changelog-update-wordpress.php
