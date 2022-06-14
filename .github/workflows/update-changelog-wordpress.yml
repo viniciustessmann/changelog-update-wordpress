@@ -18,12 +18,9 @@ jobs:
       - name: Update changelog WordPress
         run: "${GITHUB_WORKSPACE}/.github/update-changelog.sh"
         shell: bash
+        with:
+          name: ${{ steps.get_version.outputs.VERSION }}.tar.xz
+          path: ${{ steps.get_version.outputs.VERSION }}.tar.xz
       - name: Update version WordPress
         run: "${GITHUB_WORKSPACE}/.github/update-version.sh"
         shell: bash
-        with:
-          generate-zip: true
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ${{ steps.deploy.outputs.zip-path }}
-          asset_name: ${{ github.event.repository.name }}.zip
-          asset_content_type: application/zip
