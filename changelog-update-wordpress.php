@@ -3,7 +3,7 @@
 /*
 Plugin Name: Changelog Update WordPress
 Description: Plugin de teste para a implementação de actions do Github de atualização automatica do changelog e versão do plugin.
-Version: 1.0.0
+Version: 8.0.4
 Author: Vinícius Schlee Tessmann
 Author URI:
 License: GPL2
