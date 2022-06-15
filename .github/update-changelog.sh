@@ -7,38 +7,34 @@ penultimate_version=$(git describe --abbrev=0 --match="v*" --tags HEAD~)
 release=${last_version#?}
 
 tags=$penultimate_version..$last_version
-tags="v5.0.0..v6.0.0" #remove this
 
 content=$(cat README.md)
 
 if printf -- '%s' "$content" | egrep -q -- "= $release ="
 then
-  printf "Changelog updated"
+  echo  "Changelog updated"
 else 
     pull_requests=$(git log $tags --merges  --format="* %b")
-    # echo "= $release ="
-    # echo "$pull_requests"
 
-    line_started_changelog=$(awk '/== Changelog ==/{ print NR; exit }' README.md)
+    if test -z "$pull_requests" 
 
-    line_started_changelog=$((line_started_changelog + 1))
+    then
+        echo "Not found pull requests"
+    else
+        echo "$pull_requests" > CHANGELOG.tmp
 
-    echo $line_started_changelog
+        line_started_changelog=$(awk '/== Changelog ==/{ print NR; exit }' README.md)
 
-    sed -i $line_started_changelog' i\'$pull_requests README.md
+        line_started_changelog=$((line_started_changelog + 1))
 
+        sed -i $line_started_changelog" i\ " README.md
 
+        while read pull; do
+            sed -i $line_started_changelog" i\ ${pull}" README.md
+        done <CHANGELOG.tmp
 
+        rm CHANGELOG.tmp
+
+        sed -i $line_started_changelog" i\= ${release} =" README.md
+    fi
 fi
-
-# pull_requests=$(git log $tags --merges  --format="* %b" >> CHANGELOG.md)
-
-# title_section_changelog=$(echo "== Changelog ==")
-# echo "$title_section_changelog" >> CHANGELOG.md
-
-# title_release=$(echo "= ${release} =")
-# echo "$title_release" >> CHANGELOG.md
-
-
-
-
