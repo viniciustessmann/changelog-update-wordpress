@@ -27,4 +27,4 @@ git add -A
 
 git commit -m "feat: update version plugin"
 
-git push origin main --force
+git push origin main
