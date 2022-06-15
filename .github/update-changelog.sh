@@ -38,5 +38,12 @@ else
         rm CHANGELOG.tmp
 
         sed -i $line_started_changelog" i\= ${release} =" README.md
+
+        git add README.md
+
+        git commit -m "feat: update changelog"
+
+        git push origin main --force
+
     fi
 fi

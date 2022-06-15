@@ -15,3 +15,9 @@ old_version=$(grep -h "Version" changelog-update-wordpress.php)
 result=$(echo "$content" | sed "s/$old_version/Version: $new_release/")
 
 printf "$result" > changelog-update-wordpress.php
+
+git add changelog-update-wordpress.php
+
+git commit -m "feat: update version plugin"
+
+git push origin main --force
