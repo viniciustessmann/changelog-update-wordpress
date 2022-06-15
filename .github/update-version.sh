@@ -1,3 +1,5 @@
+#!/bin/sh
+
 git fetch
 
 last_version=$(git tag --sort=committerdate | tail -1)
