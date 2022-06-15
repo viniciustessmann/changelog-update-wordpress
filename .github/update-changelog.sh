@@ -43,8 +43,10 @@ else
 
         git config --global user.name "Bot updater"
 
-        git fetch
+        git checkout main
         
+        git fetch
+
         git add README.md
 
         git commit -m "update changelog plugin"
