@@ -24,4 +24,4 @@ git add changelog-update-wordpress.php
 
 git commit -m "feat: update version plugin"
 
-git push origin main
+git push origin main --force
