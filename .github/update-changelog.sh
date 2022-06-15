@@ -39,6 +39,10 @@ else
 
         sed -i $line_started_changelog" i\= ${release} =" README.md
 
+        git config --global user.email "vinicius.tessmann@melhorenvio.com"
+
+        git config --global user.name "Bot updater"
+
         git add README.md
 
         git commit -m "feat: update changelog"

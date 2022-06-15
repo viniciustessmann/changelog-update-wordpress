@@ -16,6 +16,10 @@ result=$(echo "$content" | sed "s/$old_version/Version: $new_release/")
 
 printf "$result" > changelog-update-wordpress.php
 
+git config --global user.email "vinicius.tessmann@melhorenvio.com"
+
+git config --global user.name "Bot updater"
+
 git add changelog-update-wordpress.php
 
 git commit -m "feat: update version plugin"
