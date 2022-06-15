@@ -10,6 +10,14 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Plugin de teste para a implementação de actions do Github de atualização automatica do changelog e versão do plugin.
 
 == Changelog ==
+= 8.0.0 =
+ * feat: adicionando função de escrever um teste
+ 
+= 7.1.4 =
+ * Feat: feature 1 do plugin
+ * Feat: feat 2 d plugin
+ * Feat: feature 3 do plugin
+ 
 = 1.1.0 =
 * lorem 1.lorem 1 ysolm
 

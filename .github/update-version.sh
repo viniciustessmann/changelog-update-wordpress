@@ -6,6 +6,9 @@ last_version=$(git tag --sort=committerdate | tail -1)
 
 new_release=${last_version#?}
 
+last_version="v9.0.0"
+new_release=${last_version#?}
+
 echo 'New release version' $new_release
 
 content=$(cat  "changelog-update-wordpress.php")
@@ -20,7 +23,7 @@ git config --global user.email "vinicius.tessmann@melhorenvio.com"
 
 git config --global user.name "Bot updater"
 
-git add changelog-update-wordpress.php
+git add -A
 
 git commit -m "feat: update version plugin"
 
