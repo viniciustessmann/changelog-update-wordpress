@@ -1,11 +1,7 @@
 name: Update Data WordPRess
 on:
-  push:
-    tags:
-    - "v*"
-  pull_request:
-    tags:
-    - "v*"
+  release:
+    types: [published]
 
 jobs:
   send_pull_requests:
@@ -21,3 +17,4 @@ jobs:
       - name: Update version WordPress
         run: "${GITHUB_WORKSPACE}/.github/update-version.sh"
         shell: bash
+        
