@@ -14,8 +14,6 @@ jobs:
       - name: Update changelog WordPress
         run: "${GITHUB_WORKSPACE}/.github/update-changelog.sh"
         shell: bash
-        with:
-          generate-zip: true
       - name: Update version WordPress
         run: "${GITHUB_WORKSPACE}/.github/update-version.sh"
         shell: bash
