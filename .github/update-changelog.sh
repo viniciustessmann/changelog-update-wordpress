@@ -1,3 +1,5 @@
+#!/bin/sh
+
 git fetch
 
 last_version=$(git tag --sort=committerdate | tail -1)
@@ -36,5 +38,16 @@ else
         rm CHANGELOG.tmp
 
         sed -i $line_started_changelog" i\= ${release} =" README.md
+
+        git config --global user.email "vinicius.tessmann@melhorenvio.com"
+
+        git config --global user.name "Bot updater"
+
+        git add README.md
+
+        git commit -m "feat: update changelog"
+
+        git push origin main --force
+
     fi
 fi
