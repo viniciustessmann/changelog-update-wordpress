@@ -20,6 +20,8 @@ git config --global user.email "vinicius.tessmann@melhorenvio.com"
 
 git config --global user.name "Bot updater"
 
+git fetch
+
 git add changelog-update-wordpress.php
 
 git commit -m "feat: update version plugin"

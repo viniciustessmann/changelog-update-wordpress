@@ -43,6 +43,8 @@ else
 
         git config --global user.name "Bot updater"
 
+        git fetch
+        
         git add README.md
 
         git commit -m "feat: update changelog"
