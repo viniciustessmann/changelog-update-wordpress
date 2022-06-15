@@ -22,6 +22,6 @@ git config --global user.name "Bot updater"
 
 git add changelog-update-wordpress.php
 
-git commit -m "feat: update version plugin"
+git commit -m "update version"
 
 git push origin main --force
