@@ -47,7 +47,7 @@ else
         
         git add README.md
 
-        git commit -m "feat: update changelog"
+        git commit -m "update changelog plugin"
 
         git push origin main --force
 
