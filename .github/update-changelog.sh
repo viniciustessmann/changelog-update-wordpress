@@ -39,11 +39,15 @@ else
 
         sed -i $line_started_changelog" i\= ${release} =" README.md
 
-        git config --global user.email "vinicius.tessmann@melhorenvio.com"
+        if [ -n "$2" ]; then
+            git config --global user.email $2
+        fi
 
-        git config --global user.name "Bot updater"
+        if [ -n "$3" ]; then
+        git config --global user.name $3
+        fi
 
-        git checkout main
+        git checkout $1
         
         git fetch
 
@@ -51,7 +55,7 @@ else
 
         git commit -m "update changelog plugin"
 
-        git push origin main --force
+        git push origin $1 --force
 
     fi
 fi

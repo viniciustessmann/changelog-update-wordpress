@@ -12,8 +12,8 @@ jobs:
         with:
           fetch-depth: 0
       - name: Update changelog WordPress
-        run: "${GITHUB_WORKSPACE}/.github/update-changelog.sh"
+        run: "${GITHUB_WORKSPACE}/.github/update-changelog.sh main"
         shell: bash
       - name: Update version WordPress
-        run: "${GITHUB_WORKSPACE}/.github/update-version.sh changelog-update-wordpress.php main"
+        run: "${GITHUB_WORKSPACE}/.github/update-version.sh changelog-update-wordpress.php main Tessmann vinicius.tessmann@melhorenvio.com"
         shell: bash
