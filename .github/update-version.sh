@@ -6,7 +6,7 @@ last_version=$(git tag --sort=committerdate | tail -1)
 
 new_release=${last_version#?}
 
-echo 'New release version' $new_release 'by' $1 'on brach' $2
+echo 'New release version' $new_release 'by' $1 'on branch' $2
 
 content=$(cat  "$1")
 

@@ -15,5 +15,5 @@ jobs:
         run: "${GITHUB_WORKSPACE}/.github/update-changelog.sh"
         shell: bash
       - name: Update version WordPress
-        run: "${GITHUB_WORKSPACE}/.github/update-version.sh ${{secrets.PLUGIN_FILE}} ${{secrets.MAIN_BRANCH}}"
+        run: "${GITHUB_WORKSPACE}/.github/update-version.sh ${secrets.PLUGIN_FILE} ${secrets.MAIN_BRANCH}"
         shell: bash
