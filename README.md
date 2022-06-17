@@ -10,6 +10,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Plugin de teste para a implementação de actions do Github de atualização automatica do changelog e versão do plugin.
 
 == Changelog ==
+= 9.1.3 =
+ * feat: add env variables
+ 
 = 9.1.2 =
  * feat: Adicionando variáveis de ambiente
  
