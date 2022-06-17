@@ -1,6 +1,10 @@
 Plugin de teste para a implementação de actions do Github de atualização automatica do changelog e versão do plugin com base das releases (tags).
 
 == Changelog ==
+ 
+= 9.1.10 =
+ * feat: Adicionando quebra de linha no changelog.md
+ 
 = 9.1.9 =
  * feat: pass varible git config
  
