@@ -39,6 +39,8 @@ else
 
         sed -i $line_started_changelog" i\= ${release} =" README.md
 
+        sed -i $line_started_changelog" i\ " README.md
+
         if [ -n "$2" ]; then
             git config --global user.email $2
         fi
