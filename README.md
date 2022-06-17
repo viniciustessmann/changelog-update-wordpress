@@ -1,4 +1,3 @@
-=== Changelog Update WordPress ===
 Contributors: Vinícius Schlee Tessmann
 Requires at least: 5.1
 Tested up to: 6.0
