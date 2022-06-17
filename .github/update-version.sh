@@ -6,28 +6,26 @@ last_version=$(git tag --sort=committerdate | tail -1)
 
 new_release=${last_version#?}
 
-echo 'New release version' $new_release
+echo 'New release version' $new_release 'by' $1 'on brach' $2
 
-echo ${ env.branch_main }
+content=$(cat  "$1")
 
-content=$(cat  "changelog-update-wordpress.php")
-
-old_version=$(grep -h "Version" changelog-update-wordpress.php)
+old_version=$(grep -h "Version" $1)
 
 result=$(echo "$content" | sed "s/$old_version/Version: $new_release/")
 
-printf "$result" > changelog-update-wordpress.php
+printf "$result" > $1
 
 git config --global user.email "vinicius.tessmann@melhorenvio.com"
 
 git config --global user.name "Bot updater"
 
-git checkout main
+git checkout $2
 
 git fetch
 
-git add changelog-update-wordpress.php
+git add $1
 
 git commit -m "update version"
 
-git push origin main --force
+git push origin $2 --force

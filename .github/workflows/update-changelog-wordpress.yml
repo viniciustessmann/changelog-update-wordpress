@@ -7,9 +7,6 @@ jobs:
   send_pull_requests:
     runs-on: ubuntu-latest
     name: Update WordPress data
-    env:
-      branch_main: main2
-      plugin_file: changelog-update-wordpress.php
     steps:
       - uses: actions/checkout@v2
         with:
@@ -18,5 +15,5 @@ jobs:
         run: "${GITHUB_WORKSPACE}/.github/update-changelog.sh"
         shell: bash
       - name: Update version WordPress
-        run: "${GITHUB_WORKSPACE}/.github/update-version.sh"
+        run: "${GITHUB_WORKSPACE}/.github/update-version.sh ${github.PLUGIN_FILE} ${github.MAIN_BRANCH}"
         shell: bash
