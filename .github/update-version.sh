@@ -16,9 +16,13 @@ result=$(echo "$content" | sed "s/$old_version/Version: $new_release/")
 
 printf "$result" > $1
 
-git config --global user.email "vinicius.tessmann@melhorenvio.com"
+if [ -n "$3" ]; then
+    git config --global user.email $3
+fi
 
-git config --global user.name "Bot updater"
+if [ -n "$4" ]; then
+   git config --global user.name $4
+fi
 
 git checkout $2
 
