@@ -8,7 +8,7 @@ new_release=${last_version#?}
 
 echo 'New release version' $new_release
 
-echo ${{ env.branch_main }}
+echo ${ env.branch_main }
 
 content=$(cat  "changelog-update-wordpress.php")
 
